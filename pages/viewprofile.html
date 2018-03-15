@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>view Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!------ Include the above in your HEAD tag ---------->
+    <style>
+        #m1 {
+            padding: 1em;
+            border: 1px;
+            max-width: 1000px;
+            background: whitesmoke;
+        }
+
+        #c1 {
+            max-width: 800px;
+            margin: auto;
+            background: lavender;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+
+    <div class="navbar navbar-default navbar-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
+                <a class="navbar-brand" href="#">Dating</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <h5 class="text-right">Welcome, {{ @$_SESSION['lastName'] }} {{ @$_SESSION['firstName'] }}</h5>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row" id="c1">
+        <div class="col-md-12" id="m1">
+            <h2 class="text-center">Profile Detail</h2>
+            <table class="col-md-5">
+                <tr>
+                    <td>
+                        <input type="checkbox" value="premium" id="premium">
+                        <input type="file" id="image" name="image" value="image">                    </td>
+                </tr>
+                <tr>
+                    <td>{{@$_SESSION['lastName']}},{{@$_SESSION['firstName']}},</td>
+                </tr>
+            </table>
+            <table class="col-md-7">
+                <tr>
+                    <td>Age:{{@$_SESSION['age']}}</td>
+                </tr>
+                <tr>
+                    <td>PhoneNumber:{{@$_SESSION['phonenumber']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender:{{@$_SESSION['gender']}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Seeking:{{@$_SESSION['seeking']}}
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

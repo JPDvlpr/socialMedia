@@ -1,0 +1,27 @@
+#m {
+    padding: 1em;
+    border: 1px;
+    max-width: 500px;
+    background: whitesmoke;
+}
+
+#c {
+    max-width: 500px;
+    margin: auto;
+    background: lavender;
+    padding: 12px;
+}
+
+#m1 {
+    padding: 1em;
+    border: 1px;
+    max-width: 1000px;
+    background: whitesmoke;
+}
+
+#c1 {
+    max-width: 800px;
+    margin: auto;
+    background: lavender;
+    padding: 12px;
+}
