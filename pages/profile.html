@@ -10,16 +10,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/project.css">
 </head>
-<body>
+<body  background="images/clouds.png">
 <nav>
-    <div class="navbar navbar-default navbar-top">
+    <div class="navbar  navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
                 <a class="navbar-brand" href="#">Dating</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <h5 class="text-right">Welcome, {{ @$_SESSION['lastName'] }} {{ @$_SESSION['firstName'] }}</h5>
+                <h2 class="text-center text-info">Welcome, {{ @$_SESSION['lastName'] }} {{ @$_SESSION['firstName'] }}</h2>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
 
 <div class="container">
     <div class="row" id="c1">
-        <div class="col-md-12" id="m1">
+        <div class="col-md-12 text-info" id="m1">
             <h2 class="text-center">Let's Make Profile</h2>
             <form action="#" method="post">
                 <div class="form-group col-md-6">
@@ -123,7 +123,7 @@
                     </check>
                 </div>
 
-                <button type="submit" class="btn btn-default btn-block" name="createProfile">Create Profile</button>
+                <button type="submit" class="btn btn-info btn-block" name="createProfile">Create Profile</button>
             </form>
         </div>
     </div>

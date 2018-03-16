@@ -14,11 +14,11 @@
 </head>
 <body background="images/clouds.png">
 <nav>
-    <div class="navbar navbar-default navbar-top">
+    <div class="navbar  navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand text-success " href="#">Dating</a>
+                <a class="navbar-brand" href="#">Dating</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <form class="navbar-form navbar-right" role="form" method="post" action="#" id="form1">
@@ -37,7 +37,7 @@
                         </check>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default" name="signin">Sign In</button>
+                        <button type="submit" class="btn btn-primary" name="signin">Sign In</button>
                         <check if="{{ isset(@errors['signin']) }}">
                             <h6 class="text-danger">Please Click on Sign in!</h6>
 
@@ -49,12 +49,12 @@
     </div>
 </nav>
 <div>
-    <div class="container">
+    <div class="container ">
         <div class="row" id="c">
-            <div class="col-md-12" id="m">
-                <h2 class="text-center"> Get started - it's free.</h2>
-                <form action="#" method="post" role="form">
-                    <div class="form-group">
+            <div class="col-md-12 " id="m">
+                <h2 class="text-center text-primary "> Get started - it's free.</h2>
+                <form action="#" method="post" role="form" class="text-info">
+                    <div class="form-group ">
                         <label for="firstName" id="fn">First Name:</label>
                         <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
                                value="{{ @$_SESSION['firstName'] }}">
@@ -94,7 +94,7 @@
                             <h6 class="text-danger">Please Use same Password!</h6>
                         </check>
                     </div>
-                    <button type="submit" class="btn btn-default btn-block" name="joinnow" id="joinnow">Join Now
+                    <button type="submit" class="btn btn-primary btn-block" name="joinnow" id="joinnow">Join Now
                     </button>
                 </form>
             </div>
