@@ -46,7 +46,7 @@
                     <input type="number" class="form-control" id="age" placeholder="Must be 18years" name="age"
                            value="{{@$_SESSION['age']}}">
                     <check if="{{ isset(@errors['age']) }}">
-                        <h6 class="text-danger">Please use numeric,18+only!</h6>
+                        <h6 class="text-primary">Please use numeric,18+only!</h6>
                     </check>
                 </div>
 
@@ -55,7 +55,7 @@
                     <input type="text" class="form-control" id="phonenumber" name="phonenumber"
                            value="{{@$_SESSION['phonenumber']}}" placeholder="XXX-XXX-XXXX">
                     <check if="{{ isset(@errors['phonenumber']) }}">
-                        <h6 class="text-danger">Please Enter valid phonenumber!</h6>
+                        <h6 class="text-primary">Please Enter valid phonenumber!</h6>
                     </check>
                 </div>
 
@@ -69,7 +69,7 @@
                     <check if="{{ @gender == 'Female'}}">checked</check>
                     > Female
                     <check if="{{ isset(@errors['gender']) }}">
-                        <h6 class="text-danger">Please Select Gender</h6>
+                        <h6 class="text-primary">Please Select Gender</h6>
                     </check>
                 </div>
 
@@ -84,13 +84,13 @@
                     >Female
 
                     <check if="{{ isset(@errors['sgender']) }}">
-                        <h6 class="text-danger">Please Select Gender</h6>
+                        <h6 class="text-primary">Please Select Gender</h6>
                     </check>
                 </div>
                 <div class="form-group col-md-6"><label for="email" class="font-weight-bold" id="em">Email</label>
                     <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['email']}}" placeholder="{{@$_SESSION['email']}}">
                     <check if="{{ isset(@errors['email']) }}">
-                        <h6 class="text-danger">Please Enter valid Email!</h6>
+                        <h6 class="text-primary">Please Enter valid Email!</h6>
                     </check>
                 </div>
 
@@ -108,7 +108,7 @@
                         </repeat>
                     </select>
                     <check if="{{ isset(@errors['state']) }}">
-                        <h6 class="text-danger">{{ @errors['state'] }}</h6>
+                        <h6 class="text-primary">{{ @errors['state'] }}</h6>
                     </check>
                 </div>
 
@@ -119,11 +119,11 @@
                               placeholder="Please Add About yourself i.e interests,hobbies..">{{@$_SESSION
                         ['biography']}}</textarea>
                     <check if="{{ isset(@errors['biography']) }}">
-                        <h6 class="text-danger">Error in Biography!</h6>
+                        <h6 class="text-primary">Error in Biography!</h6>
                     </check>
                 </div>
 
-                <button type="submit" class="btn btn-info btn-block" name="createProfile">Create Profile</button>
+                <button type="submit" class="btn btn-primary btn-block" name="createProfile">Create Profile</button>
             </form>
         </div>
     </div>

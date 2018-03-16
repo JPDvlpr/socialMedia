@@ -26,20 +26,20 @@
                         <input type="text" class="form-control" name="navemail" placeholder="Email"
                                value="{{@$_SESSION['navemail']}}" id="navemail">
                         <check if="{{ isset(@errors['navemail']) }}">
-                            <h6 class="text-danger">Please Enter valid Email!</h6>
+                            <h6 class="text-primary">Please Enter valid Email!</h6>
                         </check>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="navpassword" placeholder="Password"
                                id="navpassword">
                         <check if="{{ isset(@errors['navpassword']) }}">
-                            <h6 class="text-danger">Please Enter valid password!</h6>
+                            <h6 class="text-primary">Please Enter valid password!</h6>
                         </check>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" name="signin">Sign In</button>
                         <check if="{{ isset(@errors['signin']) }}">
-                            <h6 class="text-danger">Please Click on Sign in!</h6>
+                            <h6 class="text-primary">Please Click on Sign in!</h6>
 
                         </check>
                     </div>
@@ -59,7 +59,7 @@
                         <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
                                value="{{ @$_SESSION['firstName'] }}">
                         <check if="{{ isset(@errors['firstName']) }}">
-                            <h6 class="text-danger">Please Enter First name(alphabet only)!</h6>
+                            <h6 class="text-primary">Please Enter First name(alphabet only)!</h6>
                         </check>
                     </div>
                     <div class="form-group">
@@ -67,7 +67,7 @@
                         <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
                                value="{{@_SESSION['lastName']}}">
                         <check if="{{ isset(@errors['lastName']) }}">
-                            <h6 class="text-danger">Please Enter Last name(alphabet only)!</h6>
+                            <h6 class="text-primary">Please Enter Last name(alphabet only)!</h6>
                         </check>
                     </div>
                     <div class="form-group">
@@ -75,7 +75,7 @@
                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"
                                value="{{@$_SESSION['email']}}">
                         <check if="{{ isset(@errors['email']) }}">
-                            <h6 class="text-danger">Please Enter valid Email!</h6>
+                            <h6 class="text-primary">Please Enter valid Email!</h6>
                         </check>
                     </div>
                     <div class="form-group">
@@ -83,7 +83,7 @@
                         <input type="password" class="form-control" id="password" placeholder="Enter Password"
                                name="password">
                         <check if="{{ isset(@errors['password']) }}">
-                            <h6 class="text-danger">Please Enter Passwordl!</h6>
+                            <h6 class="text-primary">Please Enter Passwordl!</h6>
                         </check>
                     </div>
                     <div class="form-group">
@@ -91,7 +91,7 @@
                         <input type="password" class="form-control" id="repeatpassword" placeholder="Repeat Password"
                                name="repeatPassword">
                         <check if="{{ isset(@errors['repeatpassword']) }}">
-                            <h6 class="text-danger">Please Use same Password!</h6>
+                            <h6 class="text-primary">Please Use same Password!</h6>
                         </check>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name="joinnow" id="joinnow">Join Now
