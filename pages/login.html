@@ -5,18 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/project.css">
 </head>
 <body>
 <nav>
-    <div class="navbar navbar-default navbar-top">
+    <div class="navbar navbar-default  navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">Dating</a>
+                <a class="navbar-brand text-success " href="#">Dating</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <form class="navbar-form navbar-right" role="form" method="post" action="#">
+                <form class="navbar-form navbar-right" role="form" method="post" action="#" id="form1">
                     <div class="form-group  ">
                         <input type="text" class="form-control" name="navemail" placeholder="Email"
                                value="{{@$_SESSION['navemail']}}" id="navemail">
@@ -95,9 +98,19 @@
     </div>
 </div>
 <hr>
-<footer class="bg-light">
-    <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a></p>
+<footer class="bg-default" >
+    <h3 class="text-center ">Contact information:
+        <a href="mailto:someone@example.com">N.S & J.P @ 2018</a></h3>
 </footer>
-<!--<script src="validator.js"></script>-->
+<script src="jquery-3.3.1.min.js"></script>
+<script src="model/validator.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#firstName").click(function () {
+            $("#form1").hide();
+        });
+
+    })
+</script>
 </body>
 </html>
