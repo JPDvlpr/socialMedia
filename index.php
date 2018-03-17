@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require_once 'vendor/autoload.php';
 session_start();
-require_once 'dbconn.php';
+require_once 'model/dbconn.php';
 $f3 = Base::instance();
 $database = new Dbconn();
 $f3->set('DEBUG', 3);
@@ -23,12 +23,14 @@ $f3->route('GET|POST  /', function ($f3) {
             $password = $_POST['password'];
             $repeatpassword = $_POST['repeatPassword'];
 
+
             include 'model/validation.php';
 
             $_SESSION['firstName'] = $firstName;
             $_SESSION['lastName'] = $lastName;
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
+
             $f3->set("errors", $errors);
             $f3->set("success", $success);
         }
@@ -57,8 +59,8 @@ $f3->route('GET|POST  /', function ($f3) {
         $count = $_SESSION['count'];
         $row = $_SESSION['row'];
 
-        if ($count == 1 && $success) {
-            header("location:./profile");
+        if ($count == 1) {
+            header("location:./home");
         }
     }
 
@@ -103,12 +105,24 @@ $f3->route('GET|POST  /profile', function ($f3) {
     $database->memberprofile();
 
     if ($success) {
-        header("location:./viewprofile.html");
+        header("location:./home");
     }
 
     $template = new Template();
     echo $template->render('/pages/profile.html');
 
+});
+
+$f3->route('GET|POST  /view', function ($f3) {
+
+    $template = new Template();
+    echo $template->render('/pages/viewprofile.html');
+});
+
+$f3->route('GET|POST  /home', function ($f3) {
+
+    $template = new Template();
+    echo $template->render('/pages/home.html');
 });
 
 $f3->run();
