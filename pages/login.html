@@ -5,36 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/project.css">
+
+
 </head>
-<body>
+<body background="images/clouds.jpg">
 <nav>
-    <div class="navbar navbar-default navbar-top">
+    <div class="navbar  navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">Dating</a>
+                     <a class="navbar-brand" href="#">IT/328 Dating</Dating></a>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <form class="navbar-form navbar-right" role="form" method="post" action="#">
-                    <div class="form-group  ">
+                <form class="navbar-form navbar-right" role="form" method="post" action="#" id="form1">
+                    <div class="form-group">
                         <input type="text" class="form-control" name="navemail" placeholder="Email"
                                value="{{@$_SESSION['navemail']}}" id="navemail">
                         <check if="{{ isset(@errors['navemail']) }}">
-                            <h6 class="text-danger">Please Enter valid Email!</h6>
+                            <h6 class="text-primary">Please Enter valid Email!</h6>
                         </check>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="navpassword" placeholder="Password"
                                id="navpassword">
                         <check if="{{ isset(@errors['navpassword']) }}">
-                            <h6 class="text-danger">Please Enter valid password!</h6>
+                            <h6 class="text-primary">Please Enter valid password!</h6>
                         </check>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default" name="signin">Sign In</button>
+                        <button type="submit" class="btn btn-primary" name="signin">Sign In</button>
                         <check if="{{ isset(@errors['signin']) }}">
-                            <h6 class="text-danger">Please Click on Sign in!</h6>
+                            <h6 class="text-primary">Please Click on Sign in!</h6>
 
                         </check>
                     </div>
@@ -43,61 +48,67 @@
         </div>
     </div>
 </nav>
-
-<div class="container">
-    <div class="row" id="c">
-        <div class="col-md-12" id="m">
-            <h2 class="text-center"> Get started - it's free.</h2>
-            <form action="#" method="post" role="form">
-                <div class="form-group">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
-                           value="{{ @$_SESSION['firstName'] }}">
-                    <check if="{{ isset(@errors['firstName']) }}">
-                        <h6 class="text-danger">Please Enter First name(alphabet only)!</h6>
-                    </check>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
-                           value="{{@_SESSION['lastName']}}">
-                    <check if="{{ isset(@errors['lastName']) }}">
-                        <h6 class="text-danger">Please Enter Last name(alphabet only)!</h6>
-                    </check>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"
-                           value="{{@$_SESSION['email']}}">
-                    <check if="{{ isset(@errors['email']) }}">
-                        <h6 class="text-danger">Please Enter valid Email!</h6>
-                    </check>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter Password"
-                           name="password">
-                    <check if="{{ isset(@errors['password']) }}">
-                        <h6 class="text-danger">Please Enter Passwordl!</h6>
-                    </check>
-                </div>
-                <div class="form-group">
-                    <label for="repeatPassword">Confirm Password:</label>
-                    <input type="password" class="form-control" id="repeatpassword" placeholder="Repeat Password"
-                           name="repeatPassword">
-                    <check if="{{ isset(@errors['repeatpassword']) }}">
-                        <h6 class="text-danger">Please Use same Password!</h6>
-                    </check>
-                </div>
-                <button type="submit" class="btn btn-default btn-block" name="joinnow" id="joinnow">Join Now</button>
-            </form>
+<div>
+    <div class="container" >
+        <div class="row" id="c">
+            <div class="col-md-12 " id="m">
+                <h2 class="text-center text-primary "> Get started - it's free.</h2>
+                <form action="#" method="post" role="form" class="text-info">
+                    <div class="form-group ">
+                        <label for="firstName" id="fn">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
+                               value="{{ @$_SESSION['firstName'] }}">
+                        <check if="{{ isset(@errors['firstName']) }}">
+                            <h6 class="text-primary">Please Enter First name(alphabet only)!</h6>
+                        </check>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" id="ln">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
+                               value="{{@_SESSION['lastName']}}">
+                        <check if="{{ isset(@errors['lastName']) }}">
+                            <h6 class="text-primary">Please Enter Last name(alphabet only)!</h6>
+                        </check>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" id="em">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"
+                               value="{{@$_SESSION['email']}}">
+                        <check if="{{ isset(@errors['email']) }}">
+                            <h6 class="text-primary">Please Enter valid Email!</h6>
+                        </check>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" id="pd">Password:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                               name="password">
+                        <check if="{{ isset(@errors['password']) }}">
+                            <h6 class="text-primary">Please Enter Passwordl!</h6>
+                        </check>
+                    </div>
+                    <div class="form-group">
+                        <label for="repeatPassword" id="rpd">Confirm Password:</label>
+                        <input type="password" class="form-control" id="repeatpassword" placeholder="Repeat Password"
+                               name="repeatPassword">
+                        <check if="{{ isset(@errors['repeatpassword']) }}">
+                            <h6 class="text-primary">Please Use same Password!</h6>
+                        </check>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" name="joinnow" id="joinnow">Join Now
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 <hr>
-<footer class="bg-light">
+
+<footer class="bg-default">
     <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a></p>
 </footer>
-<!--<script src="validator.js"></script>-->
+
+<script src="model/validator.js"></script>
+<script src="model/jquery.js"></script>
+
 </body>
 </html>
