@@ -115,10 +115,10 @@ $f3->route('GET|POST  /profile', function ($f3) {
 
 $f3->route('GET|POST  /view', function ($f3) {
 
+
     $navemail = $_SESSION['navemail'];
 
     global $database;
-
     $database->viewprofileaccess();
 
     $_SESSION['firstNam'] = $_SESSION['firstName1'];
@@ -126,10 +126,49 @@ $f3->route('GET|POST  /view', function ($f3) {
     $_SESSION['ag'] = $_SESSION['age1'];
     $_SESSION['gende'] = $_SESSION['gender1'];
     $_SESSION['sgende'] = $_SESSION['sgender1'];
-    $_SESSION['mystate'] = $_SESSION['firstName1'];
+    $_SESSION['state'] = $_SESSION['state1'];
     $_SESSION['phonenumbe'] = $_SESSION['phonenumber1'];
     $_SESSION['bio'] = $_SESSION['biography1'];
     $_SESSION['ema'] = $_SESSION['email1'];
+
+
+    if (isset($_POST['update'])) {
+
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['email'];
+        $age = $_POST['age'];
+        $phonenumber = $_POST['phonenumber'];
+        $gender = $_POST['gender'];
+        $sgender = $_POST['sgender'];
+        $state = $_POST['mystates'];
+        $biography = $_POST['biography'];
+
+
+        include "model/profilevalidate.php";
+
+        $_SESSION['firstName'] = $firstName;
+        $_SESSION['lastName'] = $lastName;
+        $_SESSION['age'] = $age;
+        $_SESSION['phonenumber'] = $phonenumber;
+        $_SESSION['gender'] = $gender;
+        $_SESSION['sgender'] = $sgender;
+        $_SESSION['state'] = $state;
+        $_SESSION['biography'] = $biography;
+
+        global $database;
+        $database->updateprofile();
+
+        $_SESSION['firstNam'] = $_SESSION['firstName'];
+        $_SESSION['lastNam'] = $_SESSION['lastName'];
+        $_SESSION['ag'] = $_SESSION['age'];
+        $_SESSION['gende'] = $_SESSION['gender'];
+        $_SESSION['sgende'] = $_SESSION['sgender'];
+        $_SESSION['stat'] = $_SESSION['state'];
+        $_SESSION['phonenumbe'] = $_SESSION['phonenumber'];
+        $_SESSION['bio'] = $_SESSION['biography'];
+
+    }
 
     $template = new Template();
     echo $template->render('/pages/viewprofile.html');
