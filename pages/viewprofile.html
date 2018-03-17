@@ -44,20 +44,20 @@
             <form action="#" method="post">
                 <div class="form-group col-md-6">
                     <label for="firstName" id="fn">First Name:</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="{{@$_SESSION['firstName']}}"
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name"
                            name="firstName"
-                           value="{{@$_SESSION['firstName']}}">
+                           value="{{@$_SESSION['firstNam']}}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="lastName" id="ln">Last Name:</label>
                     <input type="text" class="form-control" id="lastName" placeholder="{{@$_SESSION['lastName']}}"
                            name="lastName"
-                           value="{{@$_SESSION['lastName']}}">
+                           value="{{@$_SESSION['lastNam']}}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="age" id="ag">Age:</label>
                     <input type="number" class="form-control" id="age" placeholder="Must be 18years" name="age"
-                           value="{{@$_SESSION['age']}}">
+                           value="{{@$_SESSION['ag']}}">
                     <check if="{{ isset(@errors['age']) }}">
                         <h6 class="text-primary">Please use numeric,18+only!</h6>
                     </check>
@@ -66,7 +66,7 @@
                 <div class="form-group col-md-6">
                     <label for="phonenumber" class="font-weight-bold" id="phone">Phone Number:</label>
                     <input type="text" class="form-control" id="phonenumber" name="phonenumber"
-                           value="{{@$_SESSION['phonenumber']}}" placeholder="XXX-XXX-XXXX">
+                           value="{{@$_SESSION['phonenumbe']}}" placeholder="XXX-XXX-XXXX">
                     <check if="{{ isset(@errors['phonenumber']) }}">
                         <h6 class="text-primary">Please Enter valid phonenumber!</h6>
                     </check>
@@ -101,8 +101,8 @@
                     </check>
                 </div>
                 <div class="form-group col-md-6"><label for="email" class="font-weight-bold" id="em">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['email']}}"
-                           placeholder="{{@$_SESSION['email']}}">
+                    <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['ema']}}"
+                           placeholder="Email">
                     <check if="{{ isset(@errors['email']) }}">
                         <h6 class="text-primary">Please Enter valid Email!</h6>
                     </check>
@@ -131,13 +131,13 @@
                     <textarea class="form-control" rows="6" id="biography"
                               name="biography"
                               placeholder="Please Add About yourself i.e interests,hobbies..">{{@$_SESSION
-                        ['biography']}}</textarea>
+                        ['bio']}}</textarea>
                     <check if="{{ isset(@errors['biography']) }}">
                         <h6 class="text-primary">Error in Biography!</h6>
                     </check>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block" name="edit">Edit Profile</button>
+
                 <button type="submit" class="btn btn-primary btn-block" name="update">Update Profile</button>
 
             </form>
