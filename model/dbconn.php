@@ -98,9 +98,42 @@ class  Dbconn
             $statement->execute();
         } catch
         (PDOException $e) {
-            echo $e->getMessage();
+//            echo $e->getMessage();
 
         }
     }
 
+    function viewprofileaccess()
+    {
+        try {
+            $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $navemail1 = $_SESSION['navemail'];
+
+            $statement = $cnxn->prepare('select *  from profilemember where email=:navemail ');
+
+
+            $navemail = $navemail1;
+
+            $statement->bindParam(":navemail", $navemail, PDO::PARAM_STR);
+            $statement->execute();
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($row as $result) {
+                $_SESSION['firstName1'] = $result['firstName'];
+                $_SESSION['lastName1'] = $result['lastName'];
+                $_SESSION['age1'] = $result['age'];
+                $_SESSION['phonenumber1'] = $result['phonenumber'];
+                $_SESSION['gender1'] = $result['gender'];
+                $_SESSION['sgender1'] = $result['sgender'];
+                $_SESSION['email1'] = $result['email'];
+                $_SESSION['state1'] = $result['mystates'];
+                $_SESSION['biography1'] = $result['biography'];
+            }
+
+        } catch
+        (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

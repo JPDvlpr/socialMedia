@@ -115,6 +115,22 @@ $f3->route('GET|POST  /profile', function ($f3) {
 
 $f3->route('GET|POST  /view', function ($f3) {
 
+    $navemail = $_SESSION['navemail'];
+
+    global $database;
+
+    $database->viewprofileaccess();
+
+    $_SESSION['firstNam'] = $_SESSION['firstName1'];
+    $_SESSION['lastNam'] = $_SESSION['lastName1'];
+    $_SESSION['ag'] = $_SESSION['age1'];
+    $_SESSION['gende'] = $_SESSION['gender1'];
+    $_SESSION['sgende'] = $_SESSION['sgender1'];
+    $_SESSION['mystate'] = $_SESSION['firstName1'];
+    $_SESSION['phonenumbe'] = $_SESSION['phonenumber1'];
+    $_SESSION['bio'] = $_SESSION['biography1'];
+    $_SESSION['ema'] = $_SESSION['email1'];
+
     $template = new Template();
     echo $template->render('/pages/viewprofile.html');
 });
