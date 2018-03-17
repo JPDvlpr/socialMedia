@@ -1,134 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Profile</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="styles/project.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    <title>Hello, world!</title>
 </head>
 <body>
-<nav>
-    <div class="navbar navbar-default navbar-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">Dating</a>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <h5 class="text-right">Welcome, {{ @$_SESSION['lastName'] }} {{ @$_SESSION['firstName'] }}</h5>
-            </div>
-        </div>
-    </div>
+
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light" id="navbar">
+    <a class="navbar-brand" href="#">
+        <img src="http://icons.iconarchive.com/icons/iconarchive/red-orb-alphabet/256/Letter-J-icon.png" width="30"
+             height="30" class="d-inline-block align-top" alt="">
+        Bootstrap
+    </a>
 </nav>
 
+<style>
+    #navbar{
+        margin-top: -3%;
+        //margin-bottom: 5%;
+    }
+    body {
+        margin-top: 30px;
+        background: #000000;
+    }
+
+    .top {
+        text-align: center;
+    }
+
+    .shadow {
+        box-shadow: 0px 0px 5px 0px;
+        padding-top: 10px;
+    }
+
+    h2, a {
+        color: #a8b99a;
+    }
+
+    .container {
+        background-color: white;
+    }
+.,
+    img {
+        border: 2px solid gray;
+    }
+</style>
 <div class="container">
-    <div class="row" id="c1">
-        <div class="col-md-12" id="m1">
-            <h2 class="text-center">Let's Make Profile</h2>
-            <form action="#" method="post">
-                <div class="form-group col-md-6">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="{{@$_SESSION['firstName']}}" name="firstName"
-                           value="{{@$_SESSION['firstName']}}">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="{{@$_SESSION['lastName']}}"
-                           name="lastName"
-                           value="{{@$_SESSION['lastName']}}">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="age">Age:</label>
-                    <input type="number" class="form-control" id="age" placeholder="Must be 18years" name="age"
-                           value="{{@$_SESSION['age']}}">
-                    <check if="{{ isset(@errors['age']) }}">
-                        <h6 class="text-danger">Please use numeric,18+only!</h6>
-                    </check>
-                </div>
+    <div class="panel-body">
+        <div class="row">
 
-                <div class="form-group col-md-6">
-                    <label for="phonenumber" class="font-weight-bold">Phone Number</label>
-                    <input type="text" class="form-control" id="phonenumber" name="phonenumber"
-                           value="{{@$_SESSION['phonenumber']}}" placeholder="XXX-XXX-XXXX">
-                    <check if="{{ isset(@errors['phonenumber']) }}">
-                        <h6 class="text-danger">Please Enter valid phonenumber!</h6>
-                    </check>
-                </div>
+            <div class="col-md-6" align="center">
 
-                <div class="form-check col-md-6">
-                    <label class="font-weight-bold ">Gender:</label><br>
-                    <input type="radio" name="gender" value="Male" id="male"
-                    <check if="{{ @gender == 'Male'}}">checked</check>
-                    > Male
+                <img alt="User Pic"
+                     src="https://bootdey.com/img/Content/user_1.jpg"
+                     class="img-circle img-responsive" width="80%" height="90%">
 
-                    <input type="radio" name="gender" value="Female" id="female"
-                    <check if="{{ @gender == 'Female'}}">checked</check>
-                    > Female
-                    <check if="{{ isset(@errors['gender']) }}">
-                        <h6 class="text-danger">Please Select Gender</h6>
-                    </check>
-                </div>
+                <h3 class="panel-title">Sheena Shrestha</h3>
 
-                <div class="form-check">
-                    <label class="font-weight-bold ">Seeking</label><br>
-                    <input type="radio" name="sgender" value="Male" id="smale"
-                    <check if="{{ @sgender == 'Male'}}">checked</check>
-                    >Male
+            </div>
 
-                    <input type="radio" name="sgender" value="Female" id="sfemale"
-                    <check if="{{ @sgender == 'Female'}}">checked</check>
-                    >Female
+            <div class=" col-md-6 ">
+                <table class="table table-user-information">
+                    <tbody>
+                    <tr>
+                        <td>Department:</td>
+                        <td>Programming</td>
+                    </tr>
+                    <tr>
+                        <td>Hire date:</td>
+                        <td>06/23/2013</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>01/24/1988</td>
+                    </tr>
 
-                    <check if="{{ isset(@errors['sgender']) }}">
-                        <h6 class="text-danger">Please Select Gender</h6>
-                    </check>
-                </div>
-                <div class="form-group col-md-6"><label for="email" class="font-weight-bold">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['email']}}" placeholder="{{@$_SESSION['email']}}">
-                    <check if="{{ isset(@errors['email']) }}">
-                        <h6 class="text-danger">Please Enter valid Email!</h6>
-                    </check>
-                </div>
+                    <tr>
+                        <td>Gender</td>
+                        <td>Female</td>
+                    </tr>
+                    <tr>
+                        <td>Home Address</td>
+                        <td>Kathmandu,Nepal</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                        </td>
+                    </tr>
 
-                <div class="form-group col-md-6"><label class="font-weight-bold">States</label>
-                    <select class="form-control" name="mystates" id="mystates">
-                        <option>--Select--</option>
-                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
-                            <option
-                            <check if="{{ @stateOption  == @state }}">
-                                selected
-                            </check>
-                            >
-                            {{ @stateOption }}
-                            </option>
-                        </repeat>
-                    </select>
-                    <check if="{{ isset(@errors['state']) }}">
-                        <h6 class="text-danger">{{ @errors['state'] }}</h6>
-                    </check>
-                </div>
+                    <tr>
+                        <!--<div class="container">-->
 
-                <div class="form-group">
-                    <label for="biography" class="font-weight-bold">Biography:</label>
-                    <textarea class="form-control" rows="6" id="biography"
-                              name="biography"
-                              placeholder="Please Add About yourself i.e interests,hobbies..">{{@$_SESSION
-                        ['biography']}}</textarea>
-                    <check if="{{ isset(@errors['biography']) }}">
-                        <h6 class="text-danger">Error in Biography!</h6>
-                    </check>
-                </div>
+                        <td>
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                                    data-target="#myModal">
+                                Friends
+                            </button>
 
-                <button type="submit" class="btn btn-default btn-block" name="createProfile">Create Profile</button>
-            </form>
+                        </td>
+                        <td>
+                            <form action="upload.php" method="post" enctype="multipart/form-data">
+
+                                <div class="form-row align-items-center">
+
+                                    <div class="form-group">
+                                        <input class="btn btn-default btn-sm" type="file"
+                                               >
+                                        <input class="btn btn-default btn-sm" type="submit" name="upload" id="upload"
+                                               value="Upload Image">
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+
+                        <!-- Trigger the modal with a button -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <div class="container">
+                                            <div class="top">
+                                                <h2>Friend's List</h2>
+                                            </div>
+                                            <div class="shadow">
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-2">
+                                                        <img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+                                                             class="img-circle" width="60px">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <h4><a href="#">Rahul Jain</a></h4>
+                                                        <p><a href="#">4 mutual friends</a></p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="http://www.fdm.co.in/wannahelp/assets/uploads_category/52743.svg"
+                                                             alt="group" width="40px"/>
+                                                        <br>
+                                                        <a href="#">Send Request</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr/>
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-2">
+                                                        <img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+                                                             class="img-circle" width="60px">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <h4><a href="#">Ram Ranga Swami</a></h4>
+                                                        <p><a href="#">4 mutual friends</a></p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="http://www.fdm.co.in/wannahelp/assets/uploads_category/52743.svg"
+                                                             alt="group" width="40px"/>
+                                                        <br>
+                                                        <a href="#">Send Request</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr/>
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-2">
+                                                        <img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+                                                             class="img-circle" width="60px">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <h4><a href="#">Ram Ranga Swami</a></h4>
+                                                        <p><a href="#">4 mutual friends</a></p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="http://www.fdm.co.in/wannahelp/assets/uploads_category/52743.svg"
+                                                             alt="group" width="40px"/>
+                                                        <br>
+                                                        <a href="#">Send Request</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr/>
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-2">
+                                                        <img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+                                                             class="img-circle" width="60px">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <h4><a href="#">Ram Ranga Swami</a></h4>
+                                                        <p><a href="#">4 mutual friends</a></p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="http://www.fdm.co.in/wannahelp/assets/uploads_category/52743.svg"
+                                                             alt="group" width="40px"/>
+                                                        <br>
+                                                        <a href="#">Send Request</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
-</div>
-<hr>
-<footer class="bg-light">
-    <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a></p>
-</footer>
-<!--<script src="validator.js"></script>-->
+
+
+    <style>
+        #footerprimary {
+            background-color: #22c71f !important;
+            margin-top: 5%;
+        }
+
+        .footer-copyright {
+            background-color: #999999;
+        }
+
+        i {
+            margin-top: 5%;
+        }
+    </style>
+
+    <!--Footer-->
+    <footer class="page-footer font-small indigo pt-0">
+
+        <!--Footer Links-->
+        <div class="container">
+
+            <!--First row-->
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-12" id="footerprimary" align="center">
+
+                    <div class="mb-5 flex-center">
+
+                        <!--Linkedin-->
+                        <a class="li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
+                        <!--Instagram-->
+                        <a class="gi-ic"><i class="fa fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
+
+                    </div>
+                </div>
+                <!--/First column-->
+            </div>
+            <!--/First row-->
+        </div>
+        <!--/Footer Links-->
+
+        <!--Copyright-->
+        <div class="footer-copyright py-3 text-center">
+            <div class="container-fluid">
+                © 2018 Copyright: <a href="#"> Jhakon P., Navtej S.</a>
+            </div>
+        </div>
+        <!--/Copyright-->
+
+    </footer>
+    <!--/Footer-->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

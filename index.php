@@ -3,10 +3,26 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require_once 'vendor/autoload.php';
 session_start();
-require_once 'dbconn.php';
+
+require_once '/home/jpappoeg/config1.php';
+
 $f3 = Base::instance();
-$database = new Dbconn();
+//$database = new Dbconn();
 $f3->set('DEBUG', 3);
+
+function connect()
+{
+    try {
+        //Instantiate a database object
+        $dbh = new PDO(DB_DSN, DB_USERNAME,
+            DB_PASSWORD);
+        echo 'Connected to database!';
+    } catch (PDOException $e) {
+        echo 'no';
+        echo $e->getMessage();
+        return;
+    }
+}
 
 //array for states
 $f3->set('states', array('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
@@ -67,7 +83,7 @@ $f3->route('GET|POST  /', function ($f3) {
 });
 
 
-$f3->route('GET|POST  /profile', function ($f3) {
+$f3->route('GET|POST  /signup', function ($f3) {
 
     if (isset($_POST['createProfile'])) {
 
@@ -99,15 +115,35 @@ $f3->route('GET|POST  /profile', function ($f3) {
         $lastName = $_SESSION['lastName'];
         $email = $_SESSION['email'];
     }
-    global $database;
-    $database->memberprofile();
 
     if ($success) {
         header("location:./viewprofile.html");
     }
 
     $template = new Template();
+    echo $template->render('/pages/signup.html');
+
+});
+
+$f3->route('GET|POST  /profile', function ($f3) {
+
+    if ($success) {
+        header("location:./profile.html");
+    }
+
+    $template = new Template();
     echo $template->render('/pages/profile.html');
+
+});
+
+$f3->route('GET|POST  /home', function ($f3) {
+
+    if ($success) {
+        header("location:./home.html");
+    }
+
+    $template = new Template();
+    echo $template->render('/pages/home.html');
 
 });
 
