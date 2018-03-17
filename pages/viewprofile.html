@@ -4,35 +4,29 @@
     <title>view Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!------ Include the above in your HEAD tag ---------->
-    <style>
-        #m1 {
-            padding: 1em;
-            border: 1px;
-            max-width: 1000px;
-            background: whitesmoke;
-        }
-
-        #c1 {
-            max-width: 800px;
-            margin: auto;
-            background: lavender;
-            padding: 12px;
-        }
-    </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+          rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/project.css">
 </head>
-<body>
+<body BACKGROUND="images/clouds.jpg">
 <nav>
-
-    <div class="navbar navbar-default navbar-top">
+    <div class="navbar  text-primary navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">Dating</a>
+                <a class="navbar-brand" href="#">IT/328 Dating</a>
             </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <h5 class="text-right">Welcome, {{ @$_SESSION['lastName'] }} {{ @$_SESSION['firstName'] }}</h5>
+            <div class="pull-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <button type="submit" class="btn navbar-btn btn-primary" name="logout" id="logout"
+                                value="Log Out">Log Out
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -41,38 +35,123 @@
 <div class="container">
     <div class="row" id="c1">
         <div class="col-md-12" id="m1">
-            <h2 class="text-center">Profile Detail</h2>
-            <table class="col-md-5">
-                <tr>
-                    <td>
-                        <input type="checkbox" value="premium" id="premium">
-                        <input type="file" id="image" name="image" value="image">                    </td>
-                </tr>
-                <tr>
-                    <td>{{@$_SESSION['lastName']}},{{@$_SESSION['firstName']}},</td>
-                </tr>
-            </table>
-            <table class="col-md-7">
-                <tr>
-                    <td>Age:{{@$_SESSION['age']}}</td>
-                </tr>
-                <tr>
-                    <td>PhoneNumber:{{@$_SESSION['phonenumber']}}</td>
-                </tr>
-                <tr>
-                    <td>
-                        Gender:{{@$_SESSION['gender']}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Seeking:{{@$_SESSION['seeking']}}
-                    </td>
-                </tr>
+            <form>
+                <fieldset>
+                    <legend class="text-center"><img src="images/person.png" height="95px" width="95px"></legend>
+                </fieldset>
+            </form>
 
-            </table>
+            <form action="#" method="post">
+                <div class="form-group col-md-6">
+                    <label for="firstName" id="fn">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="{{@$_SESSION['firstName']}}"
+                           name="firstName"
+                           value="{{@$_SESSION['firstName']}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName" id="ln">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="{{@$_SESSION['lastName']}}"
+                           name="lastName"
+                           value="{{@$_SESSION['lastName']}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="age" id="ag">Age:</label>
+                    <input type="number" class="form-control" id="age" placeholder="Must be 18years" name="age"
+                           value="{{@$_SESSION['age']}}">
+                    <check if="{{ isset(@errors['age']) }}">
+                        <h6 class="text-primary">Please use numeric,18+only!</h6>
+                    </check>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="phonenumber" class="font-weight-bold" id="phone">Phone Number:</label>
+                    <input type="text" class="form-control" id="phonenumber" name="phonenumber"
+                           value="{{@$_SESSION['phonenumber']}}" placeholder="XXX-XXX-XXXX">
+                    <check if="{{ isset(@errors['phonenumber']) }}">
+                        <h6 class="text-primary">Please Enter valid phonenumber!</h6>
+                    </check>
+                </div>
+
+                <div class="form-check col-md-6">
+                    <label class="font-weight-bold " id="gen">Gender:</label><br>
+                    <input type="radio" name="gender" value="Male" id="male"
+                    <check if="{{ @gender == 'Male'}}">checked</check>
+                    > Male
+
+                    <input type="radio" name="gender" value="Female" id="female"
+                    <check if="{{ @gender == 'Female'}}">checked</check>
+                    > Female
+                    <check if="{{ isset(@errors['gender']) }}">
+                        <h6 class="text-primary">Please Select Gender</h6>
+                    </check>
+                </div>
+
+                <div class="form-check">
+                    <label class="font-weight-bold " id="sgen">Seeking</label><br>
+                    <input type="radio" name="sgender" value="Male" id="smale"
+                    <check if="{{ @sgender == 'Male'}}">checked</check>
+                    >Male
+
+                    <input type="radio" name="sgender" value="Female" id="sfemale"
+                    <check if="{{ @sgender == 'Female'}}">checked</check>
+                    >Female
+
+                    <check if="{{ isset(@errors['sgender']) }}">
+                        <h6 class="text-primary">Please Select Gender</h6>
+                    </check>
+                </div>
+                <div class="form-group col-md-6"><label for="email" class="font-weight-bold" id="em">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['email']}}"
+                           placeholder="{{@$_SESSION['email']}}">
+                    <check if="{{ isset(@errors['email']) }}">
+                        <h6 class="text-primary">Please Enter valid Email!</h6>
+                    </check>
+                </div>
+
+                <div class="form-group col-md-6"><label class="font-weight-bold" id="st">States</label>
+                    <select class="form-control" name="mystates" id="mystates">
+                        <option>--Select--</option>
+                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                            <option
+                            <check if="{{ @stateOption  == @state }}">
+                                selected
+                            </check>
+                            >
+                            {{ @stateOption }}
+                            </option>
+                        </repeat>
+                    </select>
+                    <check if="{{ isset(@errors['state']) }}">
+                        <h6 class="text-primary">{{ @errors['state'] }}</h6>
+                    </check>
+                </div>
+
+                <div class="form-group">
+                    <label for="biography" class="font-weight-bold" id="bio">Biography:</label>
+                    <textarea class="form-control" rows="6" id="biography"
+                              name="biography"
+                              placeholder="Please Add About yourself i.e interests,hobbies..">{{@$_SESSION
+                        ['biography']}}</textarea>
+                    <check if="{{ isset(@errors['biography']) }}">
+                        <h6 class="text-primary">Error in Biography!</h6>
+                    </check>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" name="edit">Edit Profile</button>
+                <button type="submit" class="btn btn-primary btn-block" name="update">Update Profile</button>
+
+            </form>
         </div>
     </div>
+</div>
+<hr>
+<footer class="bg-light">
+    <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a></p>
+</footer>
+<script src="model/validator.js"></script>
+
+</div>
+</div>
 </div>
 </body>
 </html>
