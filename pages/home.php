@@ -4,13 +4,14 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-          rel="stylesheet" id="bootstrap-css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/project.css">
-    <script src="model/validator.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+
 </head>
 <body BACKGROUND="images/clouds.jpg">
 <nav>
@@ -18,24 +19,25 @@
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">IT/328 Dating</a>
+                <a class="navbar-brand w3-lobster" href="#">
+                    <p class="w3-xxxlarge text-info">IT/328 Dating</Dating></p></a>
             </div>
             <div class="pull-right">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="./view" class="navbar-brand"><h4>View Profile</h4></a>
+                        <a href="./view" class="navbar-brand w3-lobster">
+                            <p class="w3-xxxlarge text-info">View Profile</p></a>
                     </li>
                     <li>
-                        <button type="submit" class="btn navbar-btn btn-primary" name="logout" id="logout"
-                                value="Log Out">Log Out
-                        </button>
+                        <input type="submit" class="btn  text-info btn-basic w3-lobster w3-large" name="logout"
+                                id="logout" value=" Log Out">
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
-<!---->
+<br>
 <div class="container">
     <div class="row" id="m4">
         <div class="col-md-8">
@@ -49,39 +51,32 @@
                     </check>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-block btn-primary pull-right" name="post" id="post"
+                    <input type="submit" class="btn  btn-block text-info btn-basic w3-lobster w3-large" name="post" id="post"
                            value="Post">
                 </div>
             </form>
-            <br><br>
             <hr>
-            <div>
-                <repeat group="@$_SESSION['row']" value="@item ">
-                    <h3> {{@item.email}}
-                    </h3><br>
-                    <p class="text-capitalize">
-                        {{@item.post}}
-                    </p><br>
-                    <hr>
+
+            <repeat group="@$_SESSION['row']" value="@item ">
+                    <div class="panel panel-default w3-lobster">
+                        <h3 class="panel-heading w3-xlarge "> {{@item.email}}
+                        </h3>
+                        <p class="panel-body">
+                            {{@item.post}}
+                        </p>
+                    </div>
+                    <br>
+
                 </repeat>
                 <div>
                 </div>
-            </div>
-        </div>
-        <script>
-            var texts = document.getElementById("idea");
-            texts.onkeypress = validText;
 
-            function validText() {
-                var text = texts.value;
-                if (text.length > 10) {
-                    texts.style.borderColor = "green";
-                } else {
-                    texts.style.borderColor = "red";
-                    texts.style.borderStyle = "solid";
-                    texts.style.borderWidth = "2px";
-                }
-            }
-        </script>
+            <footer class="bg-light">
+                <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a>
+                </p>
+            </footer>
+        </div>
+
+        <script src="js/validator.js"></script>
 </body>
 </html>

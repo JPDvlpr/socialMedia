@@ -4,26 +4,31 @@
     <title>view Profile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-          rel="stylesheet" id="bootstrap-css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+
 </head>
 <body BACKGROUND="images/clouds.jpg">
+
 <nav>
     <div class="navbar  text-primary navbar-top">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main"></button>
-                <a class="navbar-brand" href="#">IT/328 Dating</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                </button>
+                <a class="navbar-brand w3-lobster" href="#">
+                    <p class="w3-xxxlarge text-info">IT/328 Dating</Dating></p></a>
             </div>
             <div class="pull-right">
                 <ul class="nav navbar-nav">
                     <li>
-                        <button type="submit" class="btn navbar-btn btn-primary" name="logout" id="logout"
-                                value="Log Out">Log Out
+                        <button type="submit" class="btn  text-info btn-basic w3-lobster w3-large"
+                                 name="logout" id="logout">Log Out
                         </button>
                     </li>
                 </ul>
@@ -35,27 +40,23 @@
 <div class="container">
     <div class="row" id="c1">
         <div class="col-md-12" id="m1">
-            <form>
-                <fieldset>
-                    <legend class="text-center"><img src="images/person.png" height="95px" width="95px"></legend>
-                </fieldset>
-            </form>
+                    <div class="text-center"><img src="images/person.png" height="95px" width="95px"></div>
 
-            <form action="#" method="post">
+            <form action="#" method="post"  class="w3-container text-info ">
                 <div class="form-group col-md-6">
-                    <label for="firstName" id="fn">First Name:</label>
+                    <label for="firstName" id="fn"class="w3-lobster w3-xlarge">First Name:</label>
                     <input type="text" class="form-control" id="firstName" placeholder="First Name"
                            name="firstName"
                            value="{{@$_SESSION['firstNam']}}">
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="lastName" id="ln">Last Name:</label>
+                <div class="form-group col-md-6" class="w3-lobster w3-xlarge">
+                    <label for="lastName" id="ln" class="w3-lobster w3-xlarge">Last Name:</label>
                     <input type="text" class="form-control" id="lastName" placeholder="Last Name"
                            name="lastName"
                            value="{{@$_SESSION['lastNam']}}">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="age" id="ag">Age:</label>
+                    <label for="age" id="ag" class="w3-lobster w3-xlarge">Age:</label>
                     <input type="number" class="form-control" id="age" placeholder="Must be 18years" name="age"
                            value="{{@$_SESSION['ag']}}">
                     <check if="{{ isset(@errors['age']) }}">
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="phonenumber" class="font-weight-bold" id="phone">Phone Number:</label>
+                    <label for="phonenumber" class="w3-lobster w3-xlarge" id="phone">Phone Number:</label>
                     <input type="text" class="form-control" id="phonenumber" name="phonenumber"
                            value="{{@$_SESSION['phonenumbe']}}" placeholder="XXX-XXX-XXXX">
                     <check if="{{ isset(@errors['phonenumber']) }}">
@@ -73,7 +74,7 @@
                 </div>
 
                 <div class="form-check col-md-6">
-                    <label class="font-weight-bold " id="gen">Gender:</label><br>
+                    <label class="w3-lobster w3-xlarge" id="gen">Gender:</label><br>
                     <input type="radio" name="gender" value="Male" id="male"
                     <check if="{{ @_SESSION['gende'] == 'Male'}}">checked</check>
                     > Male
@@ -88,7 +89,7 @@
                 </div>
 
                 <div class="form-check">
-                    <label class="font-weight-bold " id="sgen">Seeking</label><br>
+                    <label class="w3-lobster w3-xlarge" id="sgen">Seeking</label><br>
                     <input type="radio" name="sgender" value="Male" id="smale"
                     <check if="{{ @$_SESSION['sgende'] == 'Male'}}">checked</check>
                     >Male
@@ -101,7 +102,8 @@
                         <h6 class="text-primary">Please Select Gender</h6>
                     </check>
                 </div>
-                <div class="form-group col-md-6"><label for="email" class="font-weight-bold" id="em">Email</label>
+                <div class="form-group col-md-6">
+                    <label for="email" class="w3-lobster w3-xlarge" id="em">Email</label>
                     <input type="text" class="form-control" id="email" name="email" value="{{@$_SESSION['ema']}}"
                            placeholder="Email">
                     <check if="{{ isset(@errors['email']) }}">
@@ -109,7 +111,8 @@
                     </check>
                 </div>
 
-                <div class="form-group col-md-6"><label class="font-weight-bold" id="st">States</label>
+                <div class="form-group col-md-6">
+                    <label class="w3-lobster w3-xlarge" id="st">States</label>
                     <select class="form-control" name="mystates" id="mystates">
                         <option>--Select--</option>
                         <repeat group="{{ @states }}" value="{{ @stateOption }}">
@@ -128,7 +131,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="biography" class="font-weight-bold" id="bio">Biography:</label>
+                    <label for="biography" class="w3-lobster w3-xlarge" id="bio">Biography:</label>
                     <textarea class="form-control" rows="6" id="biography"
                               name="biography"
                               placeholder="Please Add About yourself i.e interests,hobbies..">{{@$_SESSION
@@ -138,9 +141,7 @@
                     </check>
                 </div>
 
-
-                <button type="submit" class="btn btn-primary btn-block" name="update">Update Profile</button>
-
+                <button type="submit" class="btn btn-block text-info btn-basic w3-lobster w3-xlarge" name="update">Update Profile</button>
             </form>
         </div>
     </div>

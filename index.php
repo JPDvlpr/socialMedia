@@ -169,6 +169,16 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['bio'] = $_SESSION['biography'];
 
     }
+    if (isset($_POST['logout'])) {
+
+        session_unset();
+        session_destroy();
+
+        if (empty(session_destroy)) {
+            header("location:./");
+        }
+    }
+
 
     $template = new Template();
     echo $template->render('/pages/viewprofile.html');
@@ -199,8 +209,17 @@ $f3->route('GET|POST  /home', function ($f3) {
     }
 
     global $database;
-     $database->memberPost();
+    $database->memberPost();
     $row = $_SESSION['row'];
+
+
+    if (isset($_GET['logout'])) {
+
+        session_destroy();
+        unset($_SESSION['navemail']);
+        header("location:./");
+    }
+
 
     $template = new Template();
     echo $template->render('/pages/home.php');

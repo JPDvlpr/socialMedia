@@ -1,7 +1,4 @@
-"use strict";
-<
-script
-src = "jquery-3.3.1.min.js" > < /script>
+
 $(document).ready(function () {
     $("#firstName").keydown(function () {
         $("#form1").hide();
@@ -24,7 +21,3 @@ $(document).ready(function () {
         $("#rpd").css("color", "DodgerBlue");
     });
 });
-
-
-
-
