@@ -59,7 +59,8 @@
 
             <repeat group="@$_SESSION['row']" value="@item ">
                     <div class="panel panel-default w3-lobster">
-                        <h3 class="panel-heading w3-xlarge "> {{@item.email}}
+                        <h3 class="panel-heading w3-xlarge ">
+                            {{@item.lastName}}   {{@item.firstName}}
                         </h3>
                         <p class="panel-body">
                             {{@item.post}}

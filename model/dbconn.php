@@ -110,7 +110,7 @@ class  Dbconn
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $navemail1 = $_SESSION['navemail'];
 
-            $statement = $cnxn->prepare('select *  from profilemember where email=:navemail ');
+            $statement = $cnxn->prepare('select *  from profilemember,memberpost where profilemember.email=:navemail ');
 
 
             $navemail = $navemail1;
@@ -129,6 +129,7 @@ class  Dbconn
                 $_SESSION['email1'] = $result['email'];
                 $_SESSION['state1'] = $result['mystates'];
                 $_SESSION['biography1'] = $result['biography'];
+                $_SESSION['email'] = $result['email'];
             }
 
         } catch
@@ -206,12 +207,12 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('select *  from memberpost');
+            $statement = $cnxn->prepare('SELECT profilemember.firstName,profilemember.lastName,memberpost.post,memberpost.email FROM `memberpost` left JOIN profilemember on memberpost.email=profilemember.email  order by postid DESC LIMIT 7 ');
 
             $statement->execute();
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-          $_SESSION['row']=$row;
+            $_SESSION['row'] = $row;
 
         } catch
         (PDOException $e) {
