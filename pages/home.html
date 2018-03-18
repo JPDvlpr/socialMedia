@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Home</title>
     <meta charset="utf-8">
@@ -23,7 +23,6 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="./view" class="navbar-brand"><h4>View Profile</h4></a>
-
                     </li>
                     <li>
                         <button type="submit" class="btn navbar-btn btn-primary" name="logout" id="logout"
@@ -35,3 +34,50 @@
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2" id="c3">
+            <div id="m3">
+                <img src="images/person.png" height="160px" width="160px">
+                <p class="text-center text-primary"><strong>{{@$_SESSION['firstNam']}}
+                    {{@$_SESSION['lastNam']}}</strong></p>
+                <hr>
+                <input type="image">
+            </div>
+        </div>
+
+        <div class="col-md-8 ">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" id="idea"
+                              name="post"
+                              placeholder="
+ Share an article or idea...."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-block btn-primary pull-right">POST</button>
+                </div>
+            </form>
+            <br><br>
+            <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -176,6 +176,13 @@ $f3->route('GET|POST  /view', function ($f3) {
 
 $f3->route('GET|POST  /home', function ($f3) {
 
+    global $database;
+    $database->viewprofileaccess();
+
+    $_SESSION['firstNam'] = $_SESSION['firstName1'];
+    $_SESSION['lastNam'] = $_SESSION['lastName1'];
+
+
     $template = new Template();
     echo $template->render('/pages/home.html');
 });
