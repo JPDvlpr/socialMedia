@@ -169,6 +169,18 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['bio'] = $_SESSION['biography'];
 
     }
+    if(isset($_POST['done'])){
+        header("location:./home");
+    }
+
+    if (isset($_POST['logout'])) {
+
+        session_destroy();
+        unset($_SESSION['navemail']);
+        unset($_SESSION['email']);
+
+        header("location:./");
+    }
 
 
     $template = new Template();
@@ -183,7 +195,7 @@ $f3->route('GET|POST  /home', function ($f3) {
     $_SESSION['firstNam'] = $_SESSION['firstName1'];
     $_SESSION['lastNam'] = $_SESSION['lastName1'];
     $_SESSION['navemai'] = $_SESSION['navemail'];
-    $_SESSION['email']==$_SESSION['email'];
+    $_SESSION['email'] = $_SESSION['email'];
 
     if (isset($_POST['post'])) {
 
@@ -206,13 +218,14 @@ $f3->route('GET|POST  /home', function ($f3) {
     $row = $_SESSION['row'];
 
 
+    if (isset($_POST['logout'])){ {
 
-//    if (isset($_GET['logout'])) {
-//
-//        session_destroy();
-//        unset($_SESSION['navemail']);
-//        header("location:./");
-//    }
+        session_destroy();
+        unset($_SESSION['navemail']);
+        unset($_SESSION['email']);
+    }
+        header("location: ./");
+    }
 
 
     $template = new Template();

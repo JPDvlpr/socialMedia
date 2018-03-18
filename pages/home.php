@@ -29,8 +29,12 @@
                             <p class="w3-xxxlarge text-info">View Profile</p></a>
                     </li>
                     <li>
-                        <input type="submit" class="btn  text-info btn-basic w3-lobster w3-large" name="logout"
-                                id="logout" value=" Log Out">
+                        <form method="post" action="#">
+                            <button type="submit" class="btn  text-info btn-basic w3-lobster w3-large"
+                                    name="logout">
+                                Log Out
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -51,26 +55,27 @@
                     </check>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn  btn-block text-info btn-basic w3-lobster w3-large" name="post" id="post"
+                    <input type="submit" class="btn  btn-block text-info btn-basic w3-lobster w3-large" name="post"
+                           id="post"
                            value="Post">
                 </div>
             </form>
             <hr>
 
             <repeat group="@$_SESSION['row']" value="@item ">
-                    <div class="panel panel-default w3-lobster">
-                        <h3 class="panel-heading w3-xlarge ">
-                            {{@item.lastName}}   {{@item.firstName}}
-                        </h3>
-                        <p class="panel-body">
-                            {{@item.post}}
-                        </p>
-                    </div>
-                    <br>
-
-                </repeat>
-                <div>
+                <div class="panel panel-default w3-lobster">
+                    <h3 class="panel-heading w3-xlarge ">
+                        {{@item.lastName}} {{@item.firstName}}
+                    </h3>
+                    <p class="panel-body">
+                        {{@item.post}}
+                    </p>
                 </div>
+                <br>
+
+            </repeat>
+            <div>
+            </div>
 
             <footer class="bg-light">
                 <p class="text-center">Contact information: <a href="mailto:someone@example.com">N.S & J.P @ 2018</a>
