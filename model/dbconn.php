@@ -136,4 +136,67 @@ class  Dbconn
             echo $e->getMessage();
         }
     }
+
+    function updateprofile()
+    {
+        try {
+            $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $navemail1 = $_SESSION['navemail'];
+
+            $statement = $cnxn->prepare('UPDATE profilemember SET firstName=:firstName,lastName=:lastName,age=:age,
+                                                                   phonenumber=:phonenumber,gender=:gender,sgender=:sgender,state=:state,biography=:biography WHERE 
+                                                                      email=:navemail ');
+
+            $firstName = $_SESSION['firstName'];
+            $lastName = $_SESSION['lastName'];
+            $age = $_SESSION['age'];
+            $phonenumber = $_SESSION['phonenumber'];
+            $gender = $_SESSION['gender'];
+            $sgender = $_SESSION['sgender'];
+            $state = $_SESSION['state'];
+            $biography = $_SESSION['biography'];
+            $navemail = $navemail1;
+
+            $statement->bindParam(":navemail", $navemail, PDO::PARAM_STR);
+            $statement->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+            $statement->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+            $statement->bindParam(':phonenumber', $phonenumber, PDO::PARAM_STR);
+            $statement->bindParam(':age', $age, PDO::PARAM_STR);
+            $statement->bindParam(':gender', $gender, PDO::PARAM_STR);
+            $statement->bindParam(':sgender', $sgender, PDO::PARAM_STR);
+            $statement->bindParam(':state', $state, PDO::PARAM_STR);
+            $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
+
+            $statement->execute();
+
+        } catch
+        (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    function insertPost()
+    {
+        try {
+            $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $statement = $cnxn->prepare('INSERT INTO memberpost(email,post) VALUES (:email,:post)');
+
+            $email = $_SESSION['navemail'];
+            $post = $_SESSION['post'];
+
+            $statement->bindParam(':email', $email, PDO::PARAM_STR);
+            $statement->bindParam(':post', $post, PDO::PARAM_STR);
+
+
+            $statement->execute();
+        } catch
+        (PDOException $e) {
+//            echo $e->getMessage();
+
+        }
+    }
 }

@@ -1,4 +1,5 @@
 "use strict";
+
 var firstNames = document.getElementById("firstName");
 var lastNames = document.getElementById("lastName");
 var emails = document.getElementById("email");
@@ -8,7 +9,6 @@ var navemails = document.getElementById("navemail");
 var ages = document.getElementById("age");
 var phonenumbers = document.getElementById("phonenumber");
 var biograpys = document.getElementById("biography");
-
 
 
 firstNames.onkeypress = validate_firstname;
@@ -73,6 +73,7 @@ function validate_repeatpassword() {
         repeatpasswords.style.borderColor = "red";
     }
 }
+
 function validatephonenumber() {
     var phonenumber = phonenumbers.value;
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -85,7 +86,7 @@ function validatephonenumber() {
 
 function validate_biography() {
     var biography = biograpys.value;
-    if (biography.length>=10 ) {
+    if (biography.length >= 10) {
         biograpys.style.borderColor = "green";
     } else {
         biograpys.style.borderColor = "red";
@@ -100,3 +101,23 @@ function validate_age() {
         ages.style.borderColor = "red";
     }
 }
+
+
+
+var texts = document.getElementById("idea");
+texts.onkeypress= validText;
+
+function validText() {
+    var text = texts.value;
+    if (text.length >10) {
+        texts.style.borderColor = "green";
+    } else {
+        texts.style.borderColor = "red";
+        texts.style.borderStyle="solid";
+        texts.style.borderWidth="2px";
+    }
+}
+
+
+
+

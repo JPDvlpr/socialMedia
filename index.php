@@ -181,7 +181,21 @@ $f3->route('GET|POST  /home', function ($f3) {
 
     $_SESSION['firstNam'] = $_SESSION['firstName1'];
     $_SESSION['lastNam'] = $_SESSION['lastName1'];
+    $_SESSION['navemai'] = $_SESSION['navemail'];
 
+    if (isset($_POST['post'])) {
+
+        $text = $_POST['idea'];
+        $email=$_SESSION['navemai'];
+
+        include 'model/homeValidation.php';
+
+        $_SESSION['post']=$text;
+        $_SESSION['navemail']=$email;
+
+        global $database;
+        $database->insertPost();
+        }
 
     $template = new Template();
     echo $template->render('/pages/home.html');
