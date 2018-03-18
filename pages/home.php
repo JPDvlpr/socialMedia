@@ -35,20 +35,10 @@
         </div>
     </div>
 </nav>
-
+<!---->
 <div class="container">
-    <div class="row">
-        <div class="col-md-2" id="c3">
-            <div id="m3">
-                <img src="images/person.png" height="160px" width="160px">
-                <p class="text-center text-primary"><strong>{{@$_SESSION['firstNam']}}
-                    {{@$_SESSION['lastNam']}}</strong></p>
-                <hr>
-                <input type="image">
-            </div>
-        </div>
-
-        <div class="col-md-8 ">
+    <div class="row" id="m4">
+        <div class="col-md-8">
             <form action="#" method="post">
                 <div class="form-group">
                     <textarea class="form-control" rows="5" id="idea" name="idea"
@@ -65,27 +55,33 @@
             </form>
             <br><br>
             <hr>
-
-
-
-
+            <div>
+                <repeat group="@$_SESSION['row']" value="@item ">
+                    <h3> {{@item.email}}
+                    </h3><br>
+                    <p class="text-capitalize">
+                        {{@item.post}}
+                    </p><br>
+                    <hr>
+                </repeat>
+                <div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<script>
-    var texts = document.getElementById("idea");
-    texts.onkeypress= validText;
+        <script>
+            var texts = document.getElementById("idea");
+            texts.onkeypress = validText;
 
-    function validText() {
-        var text = texts.value;
-        if (text.length >10) {
-            texts.style.borderColor = "green";
-        } else {
-            texts.style.borderColor = "red";
-            texts.style.borderStyle="solid";
-            texts.style.borderWidth="2px";
-        }
-    }
-</script>
+            function validText() {
+                var text = texts.value;
+                if (text.length > 10) {
+                    texts.style.borderColor = "green";
+                } else {
+                    texts.style.borderColor = "red";
+                    texts.style.borderStyle = "solid";
+                    texts.style.borderWidth = "2px";
+                }
+            }
+        </script>
 </body>
 </html>

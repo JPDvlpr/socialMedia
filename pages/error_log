@@ -1,0 +1,4 @@
+[18-Mar-2018 04:22:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function memberPost() on null in /home/nsinghvi/public_html/328/socialMedia/pages/home.php:72
+Stack trace:
+#0 {main}
+  thrown in /home/nsinghvi/public_html/328/socialMedia/pages/home.php on line 72

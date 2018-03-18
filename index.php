@@ -185,20 +185,25 @@ $f3->route('GET|POST  /home', function ($f3) {
 
     if (isset($_POST['post'])) {
 
-        $text = $_POST['idea'];
-        $email=$_SESSION['navemai'];
+        $idea = $_POST['idea'];
+        $email = $_SESSION['navemai'];
 
         include 'model/homeValidation.php';
 
-        $_SESSION['post']=$text;
-        $_SESSION['navemail']=$email;
+        $_SESSION['idea'] = $idea;
+        $_SESSION['navemail'] = $email;
 
         global $database;
         $database->insertPost();
-        }
+
+    }
+
+    global $database;
+     $database->memberPost();
+    $row = $_SESSION['row'];
 
     $template = new Template();
-    echo $template->render('/pages/home.html');
+    echo $template->render('/pages/home.php');
 });
 
 $f3->run();

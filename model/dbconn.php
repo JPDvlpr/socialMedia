@@ -186,10 +186,10 @@ class  Dbconn
             $statement = $cnxn->prepare('INSERT INTO memberpost(email,post) VALUES (:email,:post)');
 
             $email = $_SESSION['navemail'];
-            $post = $_SESSION['post'];
+            $idea = $_SESSION['idea'];
 
             $statement->bindParam(':email', $email, PDO::PARAM_STR);
-            $statement->bindParam(':post', $post, PDO::PARAM_STR);
+            $statement->bindParam(':post', $idea, PDO::PARAM_STR);
 
 
             $statement->execute();
@@ -199,4 +199,24 @@ class  Dbconn
 
         }
     }
+
+    function memberPost()
+    {
+        try {
+            $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $statement = $cnxn->prepare('select *  from memberpost');
+
+            $statement->execute();
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+          $_SESSION['row']=$row;
+
+        } catch
+        (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }
