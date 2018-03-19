@@ -207,7 +207,7 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('SELECT * from memberpost,loginmembers where memberpost.email=loginmembers.email  order by postid DESC  ');
+            $statement = $cnxn->prepare('SELECT * from memberpost,loginmembers where memberpost.email=loginmembers.email  order by postid DESC  limit 7');
 
             $statement->execute();
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);

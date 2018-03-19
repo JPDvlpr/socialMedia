@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $("#firstName").keydown(function () {
         $("#form1").hide();
@@ -19,5 +18,11 @@ $(document).ready(function () {
     $("#repeatpassword").keydown(function () {
         $("#form1").hide();
         $("#rpd").css("color", "DodgerBlue");
+    });
+    $("#mouse").mouseover(function () {
+        $("#mouse").css("fontSize", "30px");
+    });
+    $("#mouse").mouseleave(function () {
+        $("#mouse").css("fontSize", "15px");
     });
 });

@@ -61,19 +61,18 @@
                 </div>
             </form>
             <hr>
+                <repeat group="@$_SESSION['row']" value="@item">
+                    <div class="panel panel-default w3-lobster" id="mouse">
+                        <h3 class="panel-heading w3-xlarge ">
+                            {{@item.lastName}} {{@item.firstName}}
+                        </h3>
+                        <p class="panel-body" >
+                            {{@item.post}}
+                        </p>
+                    </div>
+                    <br>
 
-            <repeat group="@$_SESSION['row']" value="@item ">
-                <div class="panel panel-default w3-lobster">
-                    <h3 class="panel-heading w3-xlarge ">
-                        {{@item.lastName}} {{@item.firstName}}
-                    </h3>
-                    <p class="panel-body">
-                        {{@item.post}}
-                    </p>
-                </div>
-                <br>
-
-            </repeat>
+                </repeat>
             <div>
             </div>
 
@@ -84,5 +83,7 @@
         </div>
 
         <script src="js/validator.js"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/jquery.js"></script>
 </body>
 </html>
