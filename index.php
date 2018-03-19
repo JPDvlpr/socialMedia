@@ -146,6 +146,7 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['firstName'] = $firstName;
         $_SESSION['lastName'] = $lastName;
         $_SESSION['age'] = $age;
+        $_SESSION['email']=$email;
         $_SESSION['phonenumber'] = $phonenumber;
         $_SESSION['gender'] = $gender;
         $_SESSION['sgender'] = $sgender;
@@ -154,6 +155,7 @@ $f3->route('GET|POST  /view', function ($f3) {
 
         global $database;
         $database->updateprofile();
+        $database->updatelogin();
 
         $_SESSION['firstNam'] = $_SESSION['firstName'];
         $_SESSION['lastNam'] = $_SESSION['lastName'];
@@ -163,8 +165,15 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['stat'] = $_SESSION['state'];
         $_SESSION['phonenumbe'] = $_SESSION['phonenumber'];
         $_SESSION['bio'] = $_SESSION['biography'];
-        }
+
+
+
+    }
+
+
     if (isset($_POST['done'])) {
+
+
         header("location:./home");
     }
 

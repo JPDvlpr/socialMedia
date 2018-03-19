@@ -220,5 +220,30 @@ class  Dbconn
         }
     }
 
+    function updatelogin()
+    {
+        try {
+            $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $navemail1 = $_SESSION['navemail'];
+
+            $statement = $cnxn->prepare('UPDATE loginmembers SET firstName=:firstName,lastName=:lastName WHERE email=:navemail');
+
+            $firstName = $_SESSION['firstName'];
+            $lastName = $_SESSION['lastName'];
+            $navemail = $navemail1;
+
+            $statement->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+            $statement->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+            $statement->bindParam(':navemail', $navemail, PDO::PARAM_STR);
+
+            $statement->execute();
+        } catch
+        (PDOException $e) {
+//            echo $e->getMessage();
+
+        }
+    }
 
 }
