@@ -23,7 +23,6 @@ $f3->route('GET|POST  /', function ($f3) {
             $password = $_POST['password'];
             $repeatpassword = $_POST['repeatPassword'];
 
-
             include 'model/validation.php';
 
             $_SESSION['firstName'] = $firstName;
@@ -34,6 +33,7 @@ $f3->route('GET|POST  /', function ($f3) {
             $f3->set("errors", $errors);
             $f3->set("success", $success);
         }
+
         if ($success) {
             global $database;
             $database->addlogin();
@@ -105,19 +105,17 @@ $f3->route('GET|POST  /profile', function ($f3) {
     $database->memberprofile();
 
     if ($success) {
-        header("location:./home");
+        session_destroy();
+        header("location:./");
     }
 
     $template = new Template();
     echo $template->render('/pages/profile.html');
-
 });
 
 $f3->route('GET|POST  /view', function ($f3) {
 
-
     $navemail = $_SESSION['navemail'];
-
     global $database;
     $database->viewprofileaccess();
 
@@ -131,7 +129,6 @@ $f3->route('GET|POST  /view', function ($f3) {
     $_SESSION['bio'] = $_SESSION['biography1'];
     $_SESSION['ema'] = $_SESSION['email1'];
 
-
     if (isset($_POST['update'])) {
 
         $firstName = $_POST['firstName'];
@@ -143,7 +140,6 @@ $f3->route('GET|POST  /view', function ($f3) {
         $sgender = $_POST['sgender'];
         $state = $_POST['mystates'];
         $biography = $_POST['biography'];
-
 
         include "model/profilevalidate.php";
 
@@ -167,9 +163,8 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['stat'] = $_SESSION['state'];
         $_SESSION['phonenumbe'] = $_SESSION['phonenumber'];
         $_SESSION['bio'] = $_SESSION['biography'];
-
-    }
-    if(isset($_POST['done'])){
+        }
+    if (isset($_POST['done'])) {
         header("location:./home");
     }
 
@@ -207,27 +202,22 @@ $f3->route('GET|POST  /home', function ($f3) {
         $_SESSION['idea'] = $idea;
         $_SESSION['navemail'] = $email;
 
-
         global $database;
         $database->insertPost();
 
     }
-
     global $database;
-    $database->memberPost();
+    $database->loginPost();
     $row = $_SESSION['row'];
 
-
-    if (isset($_POST['logout'])){ {
-
-        session_destroy();
-        unset($_SESSION['navemail']);
-        unset($_SESSION['email']);
-    }
+    if (isset($_POST['logout'])) {
+        {
+            session_destroy();
+            unset($_SESSION['navemail']);
+            unset($_SESSION['email']);
+        }
         header("location: ./");
     }
-
-
     $template = new Template();
     echo $template->render('/pages/home.php');
 });

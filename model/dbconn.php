@@ -201,13 +201,13 @@ class  Dbconn
         }
     }
 
-    function memberPost()
+    function loginPost()
     {
         try {
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('SELECT profilemember.firstName,profilemember.lastName,memberpost.post,memberpost.email FROM `memberpost` left JOIN profilemember on memberpost.email=profilemember.email  order by postid DESC LIMIT 7 ');
+            $statement = $cnxn->prepare('SELECT * from memberpost,loginmembers where memberpost.email=loginmembers.email  order by postid DESC  ');
 
             $statement->execute();
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -219,5 +219,6 @@ class  Dbconn
             echo $e->getMessage();
         }
     }
+
 
 }
