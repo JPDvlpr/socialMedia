@@ -1,17 +1,7 @@
-<!--
-
-   Name-  Navtej Singh  & J.P
-   IT328- Dating Project
-   Date- 3. 19.18
-   Web-link- http://nsinghvirk.greenriverdev.com/328/socialMedia/
-
--->
-
-
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-// add vendor /autoload for dependence
+// add vendor autoload for dependence
 require_once 'vendor/autoload.php';
 // session start
 session_start();
