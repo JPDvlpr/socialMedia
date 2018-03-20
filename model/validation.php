@@ -1,8 +1,4 @@
 
-/*
-validate fields
-*/
-
 <?php
 /**
  * Created by PhpStorm.

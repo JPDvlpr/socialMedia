@@ -1,6 +1,3 @@
-/*
-validate login fields
-*/
 
 <?php
 

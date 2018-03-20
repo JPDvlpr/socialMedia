@@ -1,6 +1,4 @@
 
-//validate php text of post
-
 <?php
 
 function validText($text)

@@ -1,7 +1,4 @@
-/*
-validate field through  php function
 
-*/
 
 
 <?php
