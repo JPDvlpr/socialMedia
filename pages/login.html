@@ -34,7 +34,6 @@ Name-  Navtej Singh
             <a class="navbar-brand  w3-lobster" href="#">
                 <p class="w3-xxxlarge text-info">IT/328 Dating</Dating></p></a>
         </div>
-
         <div class="collapse navbar-collapse " id="navbar-main">
             <form class="navbar-form navbar-right w3-container" role="form" method="post" action="#" id="form1">
                 <div class="form-group">
@@ -52,7 +51,7 @@ Name-  Navtej Singh
                     </check>
                 </div>
                 <div class="form-group w3-lobster">
-                    <button type="submit" class="btn btn w3-lobster w3-xlarge" name="signin">Sign In</button>
+                    <button type="submit" class="btn btn w3-lobster w3-xlarge" name="signin" data-toggle="tooltip" data-placement="bottom" title="Please use login info!">Member  In</button>
                     <check if="{{ isset(@errors['signin']) }}">
                         <h6>Please Click on Sign in!</h6>
 
@@ -131,7 +130,7 @@ Name-  Navtej Singh
                                name="repeatPassword">
                     </div>
                     <button type="submit" class="btn btn-block w3-lobster w3-xlarge" name="joinnow"
-                            id="joinnow">Join Now
+                            id="joinnow">Member Now
                     </button>
 
                 </form>
@@ -147,7 +146,6 @@ Name-  Navtej Singh
 </footer>
 
 <script src="js/validator.js"></script>
-<script  src="js/jquery.js" type="text/javascript"></script>
-
+<script src="js/jquery.js" type="text/javascript"></script>
 </body>
 </html>

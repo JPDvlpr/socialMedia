@@ -119,6 +119,7 @@ $f3->route('GET|POST  /profile', function ($f3) {
 
     if ($success) {
         session_destroy();
+
         header("location:./");
     }
 
@@ -182,7 +183,7 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['stat'] = $_SESSION['state'];
         $_SESSION['phonenumbe'] = $_SESSION['phonenumber'];
         $_SESSION['bio'] = $_SESSION['biography'];
-        }
+    }
 
     if (isset($_POST['done'])) {
 
