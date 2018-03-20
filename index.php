@@ -1,10 +1,25 @@
+<!--
+
+   Name-  Navtej Singh  & J.P
+   IT328- Dating Project
+   Date- 3. 19.18
+   Web-link- http://nsinghvirk.greenriverdev.com/328/socialMedia/
+
+-->
+
+
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+// add vendor /autoload for dependence
 require_once 'vendor/autoload.php';
+// session start
 session_start();
+// add  databse connection file
 require_once 'model/dbconn.php';
+// add fat free instance
 $f3 = Base::instance();
+//add classes for database
 $database = new Dbconn();
 $f3->set('DEBUG', 3);
 
@@ -12,6 +27,12 @@ $f3->set('DEBUG', 3);
 $f3->set('states', array('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
     'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
     'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'));
+
+
+// set new join member and sign in
+// add in database as new member
+//  authorize to login  as database
+
 
 $f3->route('GET|POST  /', function ($f3) {
     {
@@ -68,6 +89,8 @@ $f3->route('GET|POST  /', function ($f3) {
     echo $template->render('/pages/login.html');
 });
 
+// create new member profile
+//  add to datasbase
 
 $f3->route('GET|POST  /profile', function ($f3) {
 
@@ -112,6 +135,10 @@ $f3->route('GET|POST  /profile', function ($f3) {
     $template = new Template();
     echo $template->render('/pages/profile.html');
 });
+
+// view and update profile data to database
+// set logout to destroy session
+
 
 $f3->route('GET|POST  /view', function ($f3) {
 
@@ -165,13 +192,9 @@ $f3->route('GET|POST  /view', function ($f3) {
         $_SESSION['stat'] = $_SESSION['state'];
         $_SESSION['phonenumbe'] = $_SESSION['phonenumber'];
         $_SESSION['bio'] = $_SESSION['biography'];
-
-
-    }
-
+        }
 
     if (isset($_POST['done'])) {
-
 
         header("location:./home");
     }
@@ -184,11 +207,11 @@ $f3->route('GET|POST  /view', function ($f3) {
 
         header("location:./");
     }
-
-
     $template = new Template();
     echo $template->render('/pages/viewprofile.html');
 });
+
+// add post to database and show on home page
 
 $f3->route('GET|POST  /home', function ($f3) {
 

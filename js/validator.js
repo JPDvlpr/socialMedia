@@ -1,3 +1,13 @@
+//
+// /*
+//    validate through javascript{
+//    change color of input box in between green - red
+//    according to filed validation
+// }
+// get value->assign to on key press->call function->validate
+//  */
+//
+
 "use strict";
 
 var firstNames = document.getElementById("firstName");

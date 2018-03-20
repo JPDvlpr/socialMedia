@@ -1,3 +1,7 @@
+/*
+validate login fields
+*/
+
 <?php
 
 function validnavemail($navemail)

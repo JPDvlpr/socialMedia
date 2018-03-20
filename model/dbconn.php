@@ -9,7 +9,27 @@ ini_set("display_errors", 1);
  * Time: 1:35 PM
  */
 
+//connection to database
+
 require '/home/nsinghvi/config.php';
+
+
+/*
+ * define class as DBconn
+ *
+ * define function addlogin->add login member to database
+ * define function verifylogin->verify login member with email and password to database
+ * define function memberprofile->add  member detail to database
+ * define function viewprofile access->view profile as member to database
+ * define function updateprofile->add change in profile as member to database
+ * define function addlogin->add login member to database
+ * define function insertpost->add post  to database
+ * define function loginpost->add post  to database when as existing account
+ *
+ *
+ */
+
+
 
 class  Dbconn
 {

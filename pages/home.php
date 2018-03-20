@@ -1,3 +1,11 @@
+<!--
+Name-  Navtej Singh,J.P
+   IT/328-Dating website
+   Date- 3. 19.18
+   Web-link- http://nsinghvirk.greenriverdev.com/328/socialMedia/home
+
+-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -61,18 +69,18 @@
                 </div>
             </form>
             <hr>
-                <repeat group="@$_SESSION['row']" value="@item">
-                    <div class="panel panel-default w3-lobster" id="mouse">
-                        <h3 class="panel-heading w3-xlarge ">
-                            {{@item.lastName}} {{@item.firstName}}
-                        </h3>
-                        <p class="panel-body" >
-                            {{@item.post}}
-                        </p>
-                    </div>
-                    <br>
+            <repeat group="@$_SESSION['row']" value="@item">
+                <div class="panel panel-default w3-lobster" id="mouse">
+                    <h3 class="panel-heading w3-xlarge ">
+                        {{@item.lastName}} {{@item.firstName}}
+                    </h3>
+                    <p class="panel-body">
+                        {{@item.post}}
+                    </p>
+                </div>
+                <br>
 
-                </repeat>
+            </repeat>
             <div>
             </div>
 

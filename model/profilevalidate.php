@@ -1,3 +1,9 @@
+/*
+validate field through  php function
+
+*/
+
+
 <?php
 
 function validAge($age)

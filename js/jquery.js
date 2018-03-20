@@ -1,3 +1,20 @@
+/*
+// jquery function{
+//
+// perform hide the login tab
+//  when someone try to make new account.
+//  }
+//  In create account {
+//   it change color to selected field
+//   }
+//  inhome page {
+//  it increase size on mouse over}
+//
+// }
+
+ */
+
+
 $(document).ready(function () {
     $("#firstName").keydown(function () {
         $("#form1").hide();
