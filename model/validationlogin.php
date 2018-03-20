@@ -1,5 +1,11 @@
-
 <?php
+/**
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * Login validation functions
+ * including email and password
+ */
 
 function validnavemail($navemail)
 {
@@ -10,7 +16,6 @@ function nemptypassword($navpassword)
 {
     return !empty($navpassword);
 }
-
 
 $errors = [];
 

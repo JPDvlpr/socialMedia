@@ -1,9 +1,8 @@
 <!--
-Name-  Navtej Singh,J.P
-   IT/328-Dating website
-   Date- 3. 19.18
-   Web-link- http://nsinghvirk.greenriverdev.com/328/socialMedia/home
-
+Name: Jhakon Pappoe & Navtej Singh
+Project: IT328 Dating website
+Date:  3.19.18
+Url: http://nsinghvirk.greenriverdev.com/328/home
 -->
 
 <!DOCTYPE html>

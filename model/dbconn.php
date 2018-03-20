@@ -1,18 +1,19 @@
 <?php
+/**
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * Database connect class with functions
+ * Creating connections, sotring sessions
+ * binding params and using try/catch
+ */
+
+//error reporting
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-/**
- * Created by PhpStorm.
- * User: Navtej
- * Date: 3/13/2018
- * Time: 1:35 PM
- */
-
 //connection to database
-
 require '/home/nsinghvi/config.php';
-
 
 /*
  * define class as DBconn
@@ -28,7 +29,6 @@ require '/home/nsinghvi/config.php';
  *
  *
  */
-
 
 
 class  Dbconn
