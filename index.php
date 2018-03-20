@@ -1,16 +1,30 @@
 <?php
+/**
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * Index file/Login page redirection
+ */
+
+//error reporting
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+
 // add vendor autoload for dependence
 require_once 'vendor/autoload.php';
+
 // session start
 session_start();
-// add  databse connection file
+
+// add  database connection file
 require_once 'model/dbconn.php';
+
 // add fat free instance
 $f3 = Base::instance();
+
 //add classes for database
 $database = new Dbconn();
+
 $f3->set('DEBUG', 3);
 
 //array for states
@@ -18,12 +32,12 @@ $f3->set('states', array('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California
     'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
     'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'));
 
-
 // set new join member and sign in
 // add in database as new member
 //  authorize to login  as database
 
-
+// New member using their fname, lname,
+// email and password
 $f3->route('GET|POST  /', function ($f3) {
     {
         if (isset($_POST['joinnow'])) {
@@ -81,7 +95,6 @@ $f3->route('GET|POST  /', function ($f3) {
 
 // create new member profile
 //  add to datasbase
-
 $f3->route('GET|POST  /profile', function ($f3) {
 
     if (isset($_POST['createProfile'])) {
@@ -129,8 +142,6 @@ $f3->route('GET|POST  /profile', function ($f3) {
 
 // view and update profile data to database
 // set logout to destroy session
-
-
 $f3->route('GET|POST  /view', function ($f3) {
 
     $navemail = $_SESSION['navemail'];
@@ -186,12 +197,10 @@ $f3->route('GET|POST  /view', function ($f3) {
     }
 
     if (isset($_POST['done'])) {
-
         header("location:./home");
     }
 
     if (isset($_POST['logout'])) {
-
         session_destroy();
         unset($_SESSION['navemail']);
         unset($_SESSION['email']);
@@ -203,7 +212,6 @@ $f3->route('GET|POST  /view', function ($f3) {
 });
 
 // add post to database and show on home page
-
 $f3->route('GET|POST  /home', function ($f3) {
 
     global $database;
@@ -215,7 +223,6 @@ $f3->route('GET|POST  /home', function ($f3) {
     $_SESSION['email'] = $_SESSION['email'];
 
     if (isset($_POST['post'])) {
-
         $idea = $_POST['idea'];
         $email = $_SESSION['navemai'];
 
@@ -226,7 +233,6 @@ $f3->route('GET|POST  /home', function ($f3) {
 
         global $database;
         $database->insertPost();
-
     }
     global $database;
     $database->loginPost();
