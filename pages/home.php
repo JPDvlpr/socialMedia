@@ -1,9 +1,8 @@
 <!--
-Name-  Navtej Singh,J.P
-   IT/328-Dating website
-   Date- 3. 19.18
-   Web-link- http://nsinghvirk.greenriverdev.com/328/socialMedia/home
-
+Name: Jhakon Pappoe & Navtej Singh
+Project: IT328 Dating website
+Date:  3.19.18
+Url: http://nsinghvirk.greenriverdev.com/328/home
 -->
 
 <!DOCTYPE html>
@@ -30,6 +29,11 @@ Name-  Navtej Singh,J.P
                 <a class="navbar-brand w3-lobster" href="#">
                     <p class="w3-xxxlarge text-info">IT/328 Dating</Dating></p></a>
             </div>
+
+            <div class="navbar-collapse collapse " id="navbar-main">
+                <h2 class="text-center text-info w3-lobster" id="">
+                </h2>
+            </div>
             <div class="pull-right">
                 <ul class="nav navbar-nav">
                     <li>
@@ -54,7 +58,14 @@ Name-  Navtej Singh,J.P
     <div class="row" id="m4">
         <div class="col-md-8">
             <form action="#" method="post">
-                <div class="form-group">
+                <div class="form-group d-inline-block">
+                    <div id="greetdiv">
+                        <h3 id="greetingname">Welcome {{ @fname }} {{ @lname }}, what is on your mind this </h3>
+                        <h3 id="greeting"></h3>
+                        <h3>?</h3>
+                    </div>
+
+
                     <textarea class="form-control" rows="5" id="idea" name="idea"
                               placeholder="
  Share an article or idea...."></textarea>
@@ -72,7 +83,7 @@ Name-  Navtej Singh,J.P
             <repeat group="@$_SESSION['row']" value="@item">
                 <div class="panel panel-default w3-lobster" id="mouse">
                     <h3 class="panel-heading w3-xlarge ">
-                        {{@item.lastName}} {{@item.firstName}}
+                        {{@item.firstName}} {{@item.lastName}} posted...
                     </h3>
                     <p class="panel-body">
                         {{@item.post}}
@@ -93,5 +104,25 @@ Name-  Navtej Singh,J.P
         <script src="js/validator.js"></script>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/jquery.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            var myDate = new Date();
+            var hrs = myDate.getHours();
+
+            var greet;
+
+            if (hrs < 12)
+                greet = ' morning';
+            else if (hrs >= 12 && hrs <= 17)
+                greet = ' afternoon';
+            else if (hrs >= 17 && hrs <= 24)
+                greet = ' evening';
+
+            document.getElementById('greeting').innerText =
+                greet;
+            
+        </script>
 </body>
 </html>

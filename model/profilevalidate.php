@@ -1,8 +1,12 @@
-
-
-
 <?php
-
+/**
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * Profile creation validation functions
+ * if there is an error a message will be
+ * stored in the errors and will be displayed
+ */
 function validAge($age)
 {
     return (is_numeric($age) && ($age >= 18) && (!empty($age)));
@@ -58,6 +62,5 @@ if (!validAge($age)) {
 if (!validgender($gender)) {
     $errors['gender'] = "Please select gender";
 }
-
 
 $success = sizeof($errors) == 0;

@@ -1,12 +1,14 @@
-
 <?php
 /**
- * Created by PhpStorm.
- * User: Navtej
- * Date: 2/24/2018
- * Time: 7:59 PM
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * validation functions for name, email,
+ * and password errors are added if there
+ * is faulty input
  */
 
+//error reporting
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -35,7 +37,6 @@ function validpassword($password, $repeatpassword)
 {
     return $password == $repeatpassword;
 }
-
 
 $errors = [];
 

@@ -1,18 +1,19 @@
 <?php
+/**
+ * Name: Jhakon Pappoe & Navtej Singh
+ * Project: IT328 Dating website
+ * Date:  3.19.18
+ * Database connect class with functions
+ * Creating connections, sotring sessions
+ * binding params and using try/catch
+ */
+
+//error reporting
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-/**
- * Created by PhpStorm.
- * User: Navtej
- * Date: 3/13/2018
- * Time: 1:35 PM
- */
-
 //connection to database
-
-require '/home/nsinghvi/config.php';
-
+require '/home/jpappoeg/config1.php';
 
 /*
  * define class as DBconn
@@ -30,7 +31,6 @@ require '/home/nsinghvi/config.php';
  */
 
 
-
 class  Dbconn
 {
     function addlogin()
@@ -39,7 +39,8 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('INSERT INTO loginmembers(firstName,lastName,email,password) VALUES (:firstName,:lastName,:email,:password)');
+            $statement = $cnxn->prepare('INSERT INTO loginmembers(firstName,lastName,email,password)
+            VALUES (:firstName,:lastName,:email,:password)');
 
             $firstName = $_SESSION['firstName'];
             $lastName = $_SESSION['lastName'];
@@ -55,7 +56,6 @@ class  Dbconn
         } catch
         (PDOException $e) {
             echo $e->getMessage();
-
         }
     }
 
@@ -65,7 +65,8 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('SELECT * FROM loginmembers where email=:email and password=:password');
+            $statement = $cnxn->prepare('SELECT * FROM loginmembers where email=:email 
+            and password=:password');
 
             $email = $_SESSION['navemail'];
             $password = $_SESSION['navpassword'];
@@ -92,7 +93,9 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('INSERT INTO profilemember(firstName,lastName,email,age,phonenumber,gender,sgender,state,biography) VALUES (:firstName,:lastName,:email,:age,:phonenumber,:gender,:sgender,:state,:biography)');
+            $statement = $cnxn->prepare('INSERT INTO profilemember(firstName,lastName,email,age,
+            phonenumber,gender,sgender,state,biography) VALUES (:firstName,:lastName,:email,:age,:phonenumber,
+            :gender,:sgender,:state,:biography)');
 
             $firstName = $_SESSION['firstName'];
             $lastName = $_SESSION['lastName'];
@@ -114,12 +117,10 @@ class  Dbconn
             $statement->bindParam(':state', $state, PDO::PARAM_STR);
             $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
 
-
             $statement->execute();
         } catch
         (PDOException $e) {
-//            echo $e->getMessage();
-
+            echo $e->getMessage();
         }
     }
 
@@ -130,8 +131,8 @@ class  Dbconn
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $navemail1 = $_SESSION['navemail'];
 
-            $statement = $cnxn->prepare('select *  from profilemember,memberpost where profilemember.email=:navemail ');
-
+            $statement = $cnxn->prepare('select *  from profilemember,memberpost where 
+            profilemember.email=:navemail ');
 
             $navemail = $navemail1;
 
@@ -151,7 +152,6 @@ class  Dbconn
                 $_SESSION['biography1'] = $result['biography'];
                 $_SESSION['email'] = $result['email'];
             }
-
         } catch
         (PDOException $e) {
             echo $e->getMessage();
@@ -166,9 +166,9 @@ class  Dbconn
 
             $navemail1 = $_SESSION['navemail'];
 
-            $statement = $cnxn->prepare('UPDATE profilemember SET firstName=:firstName,lastName=:lastName,age=:age,
-                                                                   phonenumber=:phonenumber,gender=:gender,sgender=:sgender,state=:state,biography=:biography WHERE 
-                                                                      email=:navemail ');
+            $statement = $cnxn->prepare('UPDATE profilemember SET firstName=:firstName,
+            lastName=:lastName,age=:age,phonenumber=:phonenumber,gender=:gender,sgender=:sgender,state=:state,
+            biography=:biography WHERE email=:navemail');
 
             $firstName = $_SESSION['firstName'];
             $lastName = $_SESSION['lastName'];
@@ -227,7 +227,8 @@ class  Dbconn
             $cnxn = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             $cnxn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $statement = $cnxn->prepare('SELECT * from memberpost,loginmembers where memberpost.email=loginmembers.email  order by postid DESC  limit 7');
+            $statement = $cnxn->prepare('SELECT * from memberpost,loginmembers where
+            memberpost.email=loginmembers.email  order by postid DESC  limit 7');
 
             $statement->execute();
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -248,7 +249,8 @@ class  Dbconn
 
             $navemail1 = $_SESSION['navemail'];
 
-            $statement = $cnxn->prepare('UPDATE loginmembers SET firstName=:firstName,lastName=:lastName WHERE email=:navemail');
+            $statement = $cnxn->prepare('UPDATE loginmembers SET firstName=:firstName,
+            lastName=:lastName WHERE email=:navemail');
 
             $firstName = $_SESSION['firstName'];
             $lastName = $_SESSION['lastName'];
@@ -261,9 +263,7 @@ class  Dbconn
             $statement->execute();
         } catch
         (PDOException $e) {
-//            echo $e->getMessage();
-
+            echo $e->getMessage();
         }
     }
-
 }
