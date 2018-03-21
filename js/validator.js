@@ -112,8 +112,6 @@ function validate_age() {
     }
 }
 
-
-
 var texts = document.getElementById("idea");
 texts.onkeypress= validText;
 

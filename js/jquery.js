@@ -14,7 +14,6 @@
 
  */
 
-
 $(document).ready(function () {
     $("#firstName").keydown(function () {
         $("#form1").hide();
