@@ -41,4 +41,7 @@ $(document).ready(function () {
     $("#mouse").mouseleave(function () {
         $("#mouse").css("fontSize", "15px");
     });
+    $("#create").mouseover(function () {
+        $("#mouse").css("color", "red");
+    });
 });

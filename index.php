@@ -96,7 +96,7 @@ $f3->route('GET|POST  /', function ($f3) {
 // create new member profile
 //  add to datasbase
 $f3->route('GET|POST  /profile', function ($f3) {
-
+    
     if (isset($_POST['createProfile'])) {
 
         $age = $_POST['age'];
@@ -131,6 +131,7 @@ $f3->route('GET|POST  /profile', function ($f3) {
     $database->memberprofile();
 
     if ($success) {
+
         session_destroy();
 
         header("location:./");
