@@ -29,6 +29,9 @@ Url: http://nsinghvirk.greenriverdev.com/328/home
                 <a class="navbar-brand w3-lobster" href="#">
                     <p class="w3-xxxlarge text-info">IT/328 Dating</Dating></p></a>
             </div>
+            <div class="navbar-collapse collapse " id="navbar-main">
+                <h2 class="text-center text-info w3-lobster">Welcome, {{ @fname }} {{ @lname }}</h2>
+            </div>
             <div class="pull-right">
                 <ul class="nav navbar-nav">
                     <li>

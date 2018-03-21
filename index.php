@@ -215,12 +215,17 @@ $f3->route('GET|POST  /view', function ($f3) {
 $f3->route('GET|POST  /home', function ($f3) {
 
     global $database;
+    global $firstName;
+    global $lastName;
     $database->viewprofileaccess();
 
     $_SESSION['firstNam'] = $_SESSION['firstName1'];
     $_SESSION['lastNam'] = $_SESSION['lastName1'];
     $_SESSION['navemai'] = $_SESSION['navemail'];
     $_SESSION['email'] = $_SESSION['email'];
+
+    $f3->set('fname', 4);
+    $f3->set('lname', 'jason');
 
     if (isset($_POST['post'])) {
         $idea = $_POST['idea'];
