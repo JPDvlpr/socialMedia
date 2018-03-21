@@ -224,8 +224,8 @@ $f3->route('GET|POST  /home', function ($f3) {
     $_SESSION['navemai'] = $_SESSION['navemail'];
     $_SESSION['email'] = $_SESSION['email'];
 
-    $f3->set('fname', 4);
-    $f3->set('lname', 'jason');
+    $f3->set('fname', $firstName);
+    $f3->set('lname', $lastName);
 
     if (isset($_POST['post'])) {
         $idea = $_POST['idea'];
